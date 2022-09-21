@@ -2,6 +2,10 @@ type Mapped<T extends readonly string[]> = {
   [K in T[number]]: any
 }
 
+type LocaleMap<T extends {}> = {
+  [locale: string]: T;
+}
+
 /** Creates a function from given template string literal which takes
  * a mapping of key-value pairs to interpolate into this template string.
  * 
@@ -31,11 +35,14 @@ export function interpolated<Args extends readonly string[]>(strings: TemplateSt
   }
 }
 
-export function init<T>() {
+/** Initiate a new instance, binding a strings mapping type.
+ * Next, add locales with `addLocales` and set a default locale with `setLocale`.
+ */
+export function init<T extends {}>() {
   return Registry.init<T>();
 }
 
-export class Registry<T, Locales> {
+export class Registry<T extends {}, Locales extends LocaleMap<T>> {
   private _locales: Locales;
   private _locale: string;
   
@@ -64,7 +71,7 @@ export class Registry<T, Locales> {
   
   getLocale = () => this._locale;
   
-  static init<T>() {
+  static init<T extends {}>() {
     return new Registry<T, {}>({})
   }
 }

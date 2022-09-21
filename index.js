@@ -34,14 +34,17 @@ function interpolated(strings) {
     };
 }
 exports.interpolated = interpolated;
+/** Initiate a new instance, binding a strings mapping type.
+ * Next, add locales with `addLocales` and set a default locale with `setLocale`.
+ */
 function init() {
     return Registry.init();
 }
 exports.init = init;
 var Registry = /** @class */ (function () {
     function Registry(init, locale) {
-        var _this = this;
         if (locale === void 0) { locale = 'en'; }
+        var _this = this;
         this.strings = function (locale) {
             if (locale === void 0) { locale = _this._locale; }
             return locale in _this._locales
