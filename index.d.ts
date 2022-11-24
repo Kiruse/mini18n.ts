@@ -1,7 +1,7 @@
-declare type Mapped<T extends readonly string[]> = {
+type Mapped<T extends readonly string[]> = {
     [K in T[number]]: any;
 };
-declare type LocaleMap<T extends {}> = {
+type LocaleMap<T extends {}> = {
     [locale: string]: T;
 };
 /** Creates a function from given template string literal which takes
