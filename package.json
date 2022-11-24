@@ -1,13 +1,13 @@
 {
   "name": "@kiruse/mini18n",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Minimalistic & type-safe i18n library",
   "scripts": {
     "test": "jest",
     "build": "tsc"
   },
   "main": "index.js",
-  "repository": "https://github.com/Kiruse/l10n.ts.git",
+  "repository": "https://github.com/Kiruse/mini18n.ts.git",
   "author": "Kiruse <kiruse@kiruse.dev>",
   "license": "MIT",
   "private": false,
